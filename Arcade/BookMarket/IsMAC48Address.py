@@ -20,7 +20,7 @@
 #[output] boolean
 #true if inputString corresponds to MAC-48 address naming rules, false otherwise.
 
-def isMAC48Address(inputString):
+def solution(inputString):
     if len(inputString)!=17:
         return False
     
@@ -32,7 +32,8 @@ def isMAC48Address(inputString):
     for i in range(0,len(inputStringSplit)):
         if len(inputStringSplit[i])!=2:
             return False
-        if (("0"<=inputStringSplit[i][0]<="9" or "A"<=inputStringSplit[i][0]<="F") and ("0"<=inputStringSplit[i][1]<="9" or "A"<=inputStringSplit[i][1]<="F")):
-            return True
-        else:
+        if not (("0"<=inputStringSplit[i][0]<="9" or "A"<=inputStringSplit[i][0]<="F") and ("0"<=inputStringSplit[i][1]<="9" or "A"<=inputStringSplit[i][1]<="F")):
             return False
+            break
+    return True        
+    
